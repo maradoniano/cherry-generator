@@ -22,7 +22,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"tree-matrix-gen" {
+		"cherry" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}

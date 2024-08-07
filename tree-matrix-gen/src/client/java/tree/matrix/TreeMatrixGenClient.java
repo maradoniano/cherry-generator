@@ -1,4 +1,4 @@
-package cherry.calculator;
+package tree.matrix;
 
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.context.CommandContext;
@@ -10,12 +10,12 @@ import net.minecraft.util.math.BlockPos;
 
 import static net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback.EVENT;
 
-public class CherryClient implements ClientModInitializer {
+public class TreeMatrixGenClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		registerCommand("generate_cherry_tree", Cherry::generateCherryTree);
-		registerCommand("delete_cherry_tree", Cherry::deleteCherryTree);
-		registerCommand("save_matrix", Cherry::saveMatrix);
+		registerCommand("generate_cherry_tree", TreeMatrixGen::generateCherryTree);
+		registerCommand("delete_cherry_tree", TreeMatrixGen::deleteCherryTree);
+		registerCommand("save_matrix", TreeMatrixGen::saveMatrix);
 	}
 
 	private void registerCommand(String commandName, CommandExecutor executor) {

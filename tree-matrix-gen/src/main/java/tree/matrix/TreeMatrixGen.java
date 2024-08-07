@@ -1,4 +1,4 @@
-package cherry.calculator;
+package tree.matrix;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Cherry implements ModInitializer {
+public class TreeMatrixGen implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
@@ -55,9 +55,9 @@ public class Cherry implements ModInitializer {
 
 			int blockType;
 			if (state.getBlock() == Blocks.CHERRY_LOG) {
-				blockType = 1;
+				blockType = 0;
 			} else if (state.getBlock() == Blocks.CHERRY_LEAVES) {
-				blockType = 2;
+				blockType = 1;
 			} else {
 				continue;
 			}
