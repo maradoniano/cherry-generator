@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "cherry",
+	"version": "${version}",
+	"name": "Cherry",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/cherry/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"cherry.calculator.Cherry"
+		],
+		"client": [
+			"cherry.calculator.CherryClient"
+		],
+		"fabric-datagen": [
+			"cherry.calculator.CherryDataGenerator"
+		]
+	},
+	"mixins": [
+		"cherry.mixins.json",
+		{
+			"config": "cherry.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
