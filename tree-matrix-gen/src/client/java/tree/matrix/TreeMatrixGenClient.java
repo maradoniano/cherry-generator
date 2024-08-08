@@ -7,19 +7,20 @@ import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
-
-import static net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback.EVENT;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 
 public class TreeMatrixGenClient implements ClientModInitializer {
+	private final TreeMatrixGen treeMatrixGen = new TreeMatrixGen();
+
 	@Override
 	public void onInitializeClient() {
-		registerCommand("generate_cherry_tree", TreeMatrixGen::generateCherryTree);
-		registerCommand("delete_cherry_tree", TreeMatrixGen::deleteCherryTree);
-		registerCommand("save_matrix", TreeMatrixGen::saveMatrix);
+		registerCommand("generate_cherry_tree", treeMatrixGen::generateCherryTree);
+		registerCommand("delete_cherry_tree", treeMatrixGen::deleteCherryTree);
+		registerCommand("save_matrix", treeMatrixGen::saveMatrix);
 	}
 
 	private void registerCommand(String commandName, CommandExecutor executor) {
-		EVENT.register((dispatcher, registryAccess, environment) -> {
+		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(CommandManager.literal(commandName)
 					.then(CommandManager.argument("x", IntegerArgumentType.integer())
 							.then(CommandManager.argument("y", IntegerArgumentType.integer())
